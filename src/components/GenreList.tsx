@@ -5,9 +5,10 @@ import GenreCardSkeleton from "./GenreCardSkeleton";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-function GenreList({ onSelectGenre }: Props) {
+function GenreList({ selectedGenre, onSelectGenre }: Props) {
   const { data, isLoading, error } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
@@ -25,7 +26,7 @@ function GenreList({ onSelectGenre }: Props) {
               borderRadius={8}
             />
             <Button
-              fontSize="lg"
+              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
               variant="link"
               onClick={() => onSelectGenre(genre)}
             >
