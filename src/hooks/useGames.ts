@@ -12,11 +12,6 @@ interface ParentPlatform {
   platform: Platform;
 }
 
-// export interface Platform {
-//     platform:     Platform;
-//     released_at:  string;
-// }
-
 export interface Game {
   id: number;
   // slug:               string;
@@ -39,25 +34,31 @@ export interface FetchGameResponse {
 const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
 
+    setLoading(true);
     apiClient
       .get<FetchGameResponse>("/games", { signal: controller.signal })
-      .then((res) => setGames(res.data.results))
+      .then((res) => {
+        setGames(res.data.results);
+        setLoading(false);
+      })
       .catch((err: AxiosError) => {
         if (axios.isCancel(err)) return;
 
         // Type assertion to handle AxiosError and other possible errors
         const axiosError = err as AxiosError;
         setError(axiosError.message || "An unknown error occurred");
+        setLoading(false);
       });
 
     return () => controller.abort();
   }, []);
 
-  return { games, error };
+  return { games, error, isLoading };
 };
 
 export default useGames;
