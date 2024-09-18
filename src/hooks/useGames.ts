@@ -2,14 +2,18 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import axios, { AxiosError } from "axios";
 
-// export interface EsrbRating {
-//     id:   number;
-//     slug: string;
-//     name: string;
-// }
+export interface Platform {
+  id: number;
+  slug: string;
+  name: string;
+}
+
+interface ParentPlatform {
+  platform: Platform;
+}
 
 // export interface Platform {
-//     platform:     EsrbRating;
+//     platform:     Platform;
 //     released_at:  string;
 // }
 
@@ -20,8 +24,8 @@ export interface Game {
   // released:           string;
   background_image: string;
   // rating:             number;
-  // esrb_rating:        EsrbRating;
   // platforms:          Platform[];
+  parent_platforms: ParentPlatform[];
 }
 
 export interface FetchGameResponse {
