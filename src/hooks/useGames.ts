@@ -18,7 +18,7 @@ export interface Game {
   // slug:               string;
   name: string;
   // released:           string;
-  // background_image:   string;
+  background_image: string;
   // rating:             number;
   // esrb_rating:        EsrbRating;
   // platforms:          Platform[];
