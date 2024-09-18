@@ -23,6 +23,7 @@ export interface Game {
   name: string;
   // released:           string;
   background_image: string;
+  metacritic: number;
   // rating:             number;
   // platforms:          Platform[];
   parent_platforms: ParentPlatform[];

@@ -4,7 +4,7 @@ import GameGrid from "./components/GameGrid";
 
 function App() {
   return (
-    <Container maxWidth="container.xl" padding={0}>
+    <Container maxWidth="container.1xl" padding={1}>
       <Grid
         templateAreas={{
           base: `"nav" "main"`,
