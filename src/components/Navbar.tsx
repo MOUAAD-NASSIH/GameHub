@@ -10,7 +10,7 @@ interface Props {
 
 function Navbar({ onSearch }: Props) {
   return (
-    <HStack justifyContent="space-between" paddingInline="10px">
+    <HStack justifyContent="space-between" padding="10px">
       <Image src={logo} boxSize="60px" />
       {/* <Image src={Epiclogo} height="40px" marginInline="10px" /> */}
       <SearchInput onSearch={onSearch} />
