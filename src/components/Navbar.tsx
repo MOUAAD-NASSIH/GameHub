@@ -4,12 +4,16 @@ import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 // import Epiclogo from "../assets/Epic_Games_logo.png";
 
-function Navbar() {
+interface Props {
+  onSearch: (searchText: string) => void;
+}
+
+function Navbar({ onSearch }: Props) {
   return (
     <HStack justifyContent="space-between" paddingInline="10px">
       <Image src={logo} boxSize="60px" />
       {/* <Image src={Epiclogo} height="40px" marginInline="10px" /> */}
-      <SearchInput />
+      <SearchInput onSearch={onSearch} />
       <ColorModeSwitch />
     </HStack>
   );
