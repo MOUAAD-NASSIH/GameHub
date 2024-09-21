@@ -1,6 +1,5 @@
-import useData from "./useData";
-import { Platform } from "./useGames";
+import platfroms from "../data/platfroms";
 
-const usePlatforms = () => useData<Platform>("platforms/lists/parents");
+const usePlatforms = () => ({ data: platfroms, error: null });
 
 export default usePlatforms;
