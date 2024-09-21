@@ -21,11 +21,14 @@ function GenreList({ selectedGenre, onSelectGenre }: Props) {
 
   if (error) return null;
   if (isLoading)
+    // we don't need this error checking and loading skeleton anymore!
     return skeletons.map((skeleton) => <GenreCardSkeleton key={skeleton} />);
 
   return (
     <>
-      <Heading fontSize="2xl" marginBottom={3} marginTop={9}>Genres</Heading>
+      <Heading fontSize="2xl" marginBottom={3} marginTop={9}>
+        Genres
+      </Heading>
       <List>
         {data.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
